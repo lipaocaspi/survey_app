@@ -1,4 +1,4 @@
-package com.survey.survey_app.domain.dto;
+package com.survey.survey_app.persistence.entity;
 
 // import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,32 +10,30 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "response_catalogs")
-public class ResponseCatalog {
+@Table(name = "detail_responses")
+public class DetailResponse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 	private Integer responseOption;
-    private Long catalogId;
     private Long questionId;
     private Long responseId;
     private String responseText;
 
 	@ManyToOne
-    @JoinColumn(name = "catalogId", insertable = false, updatable = false)
-    private Catalog catalog;
+    @JoinColumn(name = "questionId", insertable = false, updatable = false)
+    private Question question;
 
     @ManyToOne
     @JoinColumn(name = "responseId", insertable = false, updatable = false)
     private Response response;
 
-	public ResponseCatalog() {}
+	public DetailResponse() {}
 
-	public ResponseCatalog(Integer responseOption, Long catalogId, Long questionId, Long responseId, String responseText) {
+	public DetailResponse(Integer responseOption, Long questionId, Long responseId, String responseText) {
 		this.responseOption = responseOption;
-		this.catalogId = catalogId;
 		this.questionId = questionId;
 		this.responseId = responseId;
 		this.responseText = responseText;
@@ -55,14 +53,6 @@ public class ResponseCatalog {
 
 	public void setResponseOption(Integer responseOption) {
 		this.responseOption = responseOption;
-	}
-
-	public Long getCatalogId() {
-		return catalogId;
-	}
-
-	public void setCatalogId(Long catalogId) {
-		this.catalogId = catalogId;
 	}
 
 	public Long getQuestionId() {

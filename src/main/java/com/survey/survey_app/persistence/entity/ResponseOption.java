@@ -1,5 +1,4 @@
-package com.survey.survey_app.domain.dto;
-
+package com.survey.survey_app.persistence.entity;
 // import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

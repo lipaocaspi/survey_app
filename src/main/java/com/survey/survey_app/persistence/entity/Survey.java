@@ -1,4 +1,4 @@
-package com.survey.survey_app.domain.dto;
+package com.survey.survey_app.persistence.entity;
 
 import java.sql.Timestamp;
 
