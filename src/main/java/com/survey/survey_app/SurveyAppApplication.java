@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 import com.survey.survey_app.persistence.entity.Catalog;
 import com.survey.survey_app.persistence.entity.Chapter;
@@ -28,6 +29,7 @@ import com.survey.survey_app.domain.repository.SurveyRepository;
 import jakarta.transaction.Transactional;
 
 @SpringBootApplication
+@PropertySource("classpath:messages.properties")
 public class SurveyAppApplication implements CommandLineRunner {
 
 	@Autowired
